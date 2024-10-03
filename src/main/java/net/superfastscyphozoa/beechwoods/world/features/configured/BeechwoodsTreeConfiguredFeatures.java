@@ -1,5 +1,6 @@
 package net.superfastscyphozoa.beechwoods.world.features.configured;
 
+import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockState;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -12,6 +13,7 @@ import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.CherryFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
+import net.minecraft.world.gen.treedecorator.TrunkVineTreeDecorator;
 import net.minecraft.world.gen.trunk.LargeOakTrunkPlacer;
 import net.superfastscyphozoa.beechwoods.registry.RegisterBlocks;
 
@@ -21,6 +23,9 @@ public class BeechwoodsTreeConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> RED_BEECH_KEY = registerKey("red_beech");
     public static final RegistryKey<ConfiguredFeature<?, ?>> YELLOW_BEECH_KEY = registerKey("yellow_beech");
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> VINY_RED_BEECH_KEY = registerKey("viny_red_beech");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> VINY_YELLOW_BEECH_KEY = registerKey("viny_yellow_beech");
 
     private static TreeFeatureConfig.Builder red_beech() {
         return (new TreeFeatureConfig.Builder(
@@ -52,6 +57,14 @@ public class BeechwoodsTreeConfiguredFeatures {
 
         BeechwoodsConfiguredFeatures.register(context, RED_BEECH_KEY, Feature.TREE, red_beech().build());
         BeechwoodsConfiguredFeatures.register(context, YELLOW_BEECH_KEY, Feature.TREE, yellow_beech().build());
+
+        BeechwoodsConfiguredFeatures.register(context, VINY_RED_BEECH_KEY, Feature.TREE, red_beech()
+                .decorators(ImmutableList.of(TrunkVineTreeDecorator.INSTANCE))
+                .build());
+
+        BeechwoodsConfiguredFeatures.register(context, VINY_YELLOW_BEECH_KEY, Feature.TREE, yellow_beech()
+                .decorators(ImmutableList.of(TrunkVineTreeDecorator.INSTANCE))
+                .build());
 
     }
 }
