@@ -11,6 +11,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.beechwoods.Beechwoods;
+import net.superfastscyphozoa.beechwoods.block.BeechLeavesBlock;
 import net.superfastscyphozoa.beechwoods.world.tree.BeechwoodsSaplingGenerators;
 
 public class RegisterBlocks {
@@ -60,6 +61,9 @@ public class RegisterBlocks {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
             entries.addAfter(Blocks.CHERRY_LOG, BEECH_LOG);
             entries.addAfter(Blocks.CHERRY_SAPLING, BEECH_SAPLING);
+            entries.addAfter(Blocks.CHERRY_LEAVES, RED_BEECH_LEAVES);
+            entries.addAfter(RED_BEECH_LEAVES, ORANGE_BEECH_LEAVES);
+            entries.addAfter(ORANGE_BEECH_LEAVES, YELLOW_BEECH_LEAVES);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
@@ -74,7 +78,7 @@ public class RegisterBlocks {
     // blocks
 
     public static Block createBeechLeaves(MapColor colour){
-        return new LeavesBlock(AbstractBlock.Settings.create()
+        return new BeechLeavesBlock(AbstractBlock.Settings.create()
                 .mapColor(colour)
                 .strength(0.2F)
                 .ticksRandomly()

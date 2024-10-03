@@ -6,6 +6,7 @@ import net.superfastscyphozoa.beechwoods.block.util.BeechwoodsFlammableBlocks;
 import net.superfastscyphozoa.beechwoods.block.util.BeechwoodsStrippableBlocks;
 import net.superfastscyphozoa.beechwoods.registry.RegisterBlocks;
 import net.superfastscyphozoa.beechwoods.registry.RegisterItems;
+import net.superfastscyphozoa.beechwoods.registry.RegisterParticles;
 import net.superfastscyphozoa.beechwoods.world.gen.BeechwoodsWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,8 @@ public class Beechwoods implements ModInitializer {
 
 		BeechwoodsFlammableBlocks.RegisterFlammableBlocks();
 		BeechwoodsStrippableBlocks.RegisterStrippableBlocks();
+
+		RegisterParticles.registerBeechwoodsParticles();
 
 		BeechwoodsWorldGeneration.generateBeechwoodsWorldgen();
 
