@@ -2,10 +2,11 @@ package net.superfastscyphozoa.beechwoods;
 
 import net.fabricmc.api.ModInitializer;
 
-import net.superfastscyphozoa.beechwoods.block.BeechwoodsFlammableBlocks;
-import net.superfastscyphozoa.beechwoods.block.BeechwoodsStrippableBlocks;
+import net.superfastscyphozoa.beechwoods.block.util.BeechwoodsFlammableBlocks;
+import net.superfastscyphozoa.beechwoods.block.util.BeechwoodsStrippableBlocks;
 import net.superfastscyphozoa.beechwoods.registry.RegisterBlocks;
 import net.superfastscyphozoa.beechwoods.registry.RegisterItems;
+import net.superfastscyphozoa.beechwoods.world.gen.BeechwoodsWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,6 +22,8 @@ public class Beechwoods implements ModInitializer {
 
 		BeechwoodsFlammableBlocks.RegisterFlammableBlocks();
 		BeechwoodsStrippableBlocks.RegisterStrippableBlocks();
+
+		BeechwoodsWorldGeneration.generateBeechwoodsWorldgen();
 
 		LOGGER.info("Boo! muahahahahaha i spooked you lmao");
 	}

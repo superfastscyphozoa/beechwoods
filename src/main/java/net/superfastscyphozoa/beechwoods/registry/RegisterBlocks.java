@@ -2,13 +2,16 @@ package net.superfastscyphozoa.beechwoods.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.beechwoods.Beechwoods;
+import net.superfastscyphozoa.beechwoods.world.tree.BeechwoodsSaplingGenerators;
 
 public class RegisterBlocks {
 
@@ -25,6 +28,19 @@ public class RegisterBlocks {
 
     public static final Block STRIPPED_BEECH_WOOD = registerBlock("stripped_beech_wood",
             new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD)));
+
+    public static final Block RED_BEECH_LEAVES = registerBlock("red_beech_leaves", createBeechLeaves(MapColor.RED));
+    public static final Block ORANGE_BEECH_LEAVES = registerBlock("orange_beech_leaves", createBeechLeaves(MapColor.ORANGE));
+    public static final Block YELLOW_BEECH_LEAVES = registerBlock("yellow_beech_leaves", createBeechLeaves(MapColor.YELLOW));
+
+    public static final Block BEECH_SAPLING = registerBlock("beech_sapling",
+            new SaplingBlock(BeechwoodsSaplingGenerators.BEECH, AbstractBlock.Settings.create()
+                    .mapColor(MapColor.ORANGE)
+                    .noCollision()
+                    .ticksRandomly()
+                    .breakInstantly()
+                    .sounds(BlockSoundGroup.GRASS)
+                    .pistonBehavior(PistonBehavior.DESTROY)));
 
     //registry end
 
@@ -43,6 +59,7 @@ public class RegisterBlocks {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
             entries.addAfter(Blocks.CHERRY_LOG, BEECH_LOG);
+            entries.addAfter(Blocks.CHERRY_SAPLING, BEECH_SAPLING);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
@@ -52,5 +69,22 @@ public class RegisterBlocks {
             entries.addAfter(STRIPPED_BEECH_LOG, STRIPPED_BEECH_WOOD);
         });
 
+    }
+
+    // blocks
+
+    public static Block createBeechLeaves(MapColor colour){
+        return new LeavesBlock(AbstractBlock.Settings.create()
+                .mapColor(colour)
+                .strength(0.2F)
+                .ticksRandomly()
+                .sounds(BlockSoundGroup.GRASS)
+                .nonOpaque()
+                .allowsSpawning(Blocks::canSpawnOnLeaves)
+                .suffocates(Blocks::never)
+                .blockVision(Blocks::never)
+                .burnable()
+                .pistonBehavior(PistonBehavior.DESTROY)
+                .solidBlock(Blocks::never));
     }
 }

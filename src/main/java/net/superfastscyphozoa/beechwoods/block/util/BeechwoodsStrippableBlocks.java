@@ -1,4 +1,4 @@
-package net.superfastscyphozoa.beechwoods.block;
+package net.superfastscyphozoa.beechwoods.block.util;
 
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.superfastscyphozoa.beechwoods.registry.RegisterBlocks;

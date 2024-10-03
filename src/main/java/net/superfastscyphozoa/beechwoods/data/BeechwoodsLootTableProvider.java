@@ -18,5 +18,11 @@ public class BeechwoodsLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(RegisterBlocks.BEECH_WOOD);
         addDrop(RegisterBlocks.STRIPPED_BEECH_LOG);
         addDrop(RegisterBlocks.STRIPPED_BEECH_WOOD);
+
+        addDrop(RegisterBlocks.BEECH_SAPLING);
+
+        leavesDrops(RegisterBlocks.RED_BEECH_LEAVES, RegisterBlocks.BEECH_SAPLING, SAPLING_DROP_CHANCE);
+        leavesDrops(RegisterBlocks.ORANGE_BEECH_LEAVES, RegisterBlocks.BEECH_SAPLING, SAPLING_DROP_CHANCE);
+        leavesDrops(RegisterBlocks.YELLOW_BEECH_LEAVES, RegisterBlocks.BEECH_SAPLING, SAPLING_DROP_CHANCE);
     }
 }

@@ -2,5 +2,11 @@
   "block.beechwoods.beech_log": "Beech Log",
   "block.beechwoods.beech_wood": "Beech Wood",
   "block.beechwoods.stripped_beech_log": "Stripped Beech Log",
-  "block.beechwoods.stripped_beech_wood": "Stripped Beech Wood"
+  "block.beechwoods.stripped_beech_wood": "Stripped Beech Wood",
+
+  "block.beechwoods.beech_sapling": "Beech Sapling",
+
+  "block.beechwoods.red_beech_leaves": "Red Beech Leaves",
+  "block.beechwoods.orange_beech_leaves": "Orange Beech Leaves",
+  "block.beechwoods.yellow_beech_leaves": "Yellow Beech Leaves"
 }
