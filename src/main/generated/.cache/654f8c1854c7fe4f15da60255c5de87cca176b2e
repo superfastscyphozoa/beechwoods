@@ -1,6 +1,6 @@
-// 1.21.1	2024-10-03T23:20:09.6646994	beechwoods/Block Loot Tables
+// 1.21.1	2024-10-04T04:16:14.1033503	beechwoods/Block Loot Tables
 cb522a7f866f1c51040c8a00c5a952218f54685b data\beechwoods\loot_table\blocks\stripped_beech_log.json
 31cd4827c4d9091b50f17f7ecccfefbb9792f78e data\beechwoods\loot_table\blocks\beech_sapling.json
 853893b01321acfd0d572a79363a17e3891c2170 data\beechwoods\loot_table\blocks\stripped_beech_wood.json
-70b6156dd8b12dadd4bd80d9fa140135bf4a4b12 data\beechwoods\loot_table\blocks\beech_wood.json
 3d797f6edb2af752c0e4529d7cd5a990bf9a9386 data\beechwoods\loot_table\blocks\beech_log.json
+70b6156dd8b12dadd4bd80d9fa140135bf4a4b12 data\beechwoods\loot_table\blocks\beech_wood.json

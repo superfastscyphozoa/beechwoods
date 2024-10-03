@@ -6,6 +6,7 @@ import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 import net.superfastscyphozoa.beechwoods.data.tags.BeechwoodsBlockTagProvider;
 import net.superfastscyphozoa.beechwoods.data.tags.BeechwoodsItemTagProvider;
+import net.superfastscyphozoa.beechwoods.world.biome.BeechwoodsBiomes;
 import net.superfastscyphozoa.beechwoods.world.features.configured.BeechwoodsConfiguredFeatures;
 import net.superfastscyphozoa.beechwoods.world.features.placed.BeechwoodsPlacedFeatures;
 
@@ -28,6 +29,6 @@ public class BeechwoodsDataGenerator implements DataGeneratorEntrypoint {
 	public void buildRegistry(RegistryBuilder registryBuilder){
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, BeechwoodsConfiguredFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, BeechwoodsPlacedFeatures::bootstrap);
-		//registryBuilder.addRegistry(RegistryKeys.BIOME, BeechwoodsBiomes::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.BIOME, BeechwoodsBiomes::bootstrap);
 	}
 }
