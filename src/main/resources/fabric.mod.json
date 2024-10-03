@@ -18,6 +18,9 @@
 		"main": [
 			"net.superfastscyphozoa.beechwoods.Beechwoods"
 		],
+		"client": [
+			"net.superfastscyphozoa.beechwoods.client.BeechwoodsClient"
+		],
 		"fabric-datagen": [
 			"net.superfastscyphozoa.beechwoods.data.BeechwoodsDataGenerator"
 		]
