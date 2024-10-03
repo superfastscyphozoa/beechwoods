@@ -1,15 +1,15 @@
 {
   "variants": {
     "axis=x": {
-      "model": "beechwoods:block/beech_log_horizontal",
+      "model": "beechwoods:block/stripped_beech_log_horizontal",
       "x": 90,
       "y": 90
     },
     "axis=y": {
-      "model": "beechwoods:block/beech_log"
+      "model": "beechwoods:block/stripped_beech_log"
     },
     "axis=z": {
-      "model": "beechwoods:block/beech_log_horizontal",
+      "model": "beechwoods:block/stripped_beech_log_horizontal",
       "x": 90
     }
   }
