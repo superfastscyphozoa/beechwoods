@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "beechwoods",
+	"version": "0.1",
+	"name": "beechwoods",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Chell"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/beechwoods/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.superfastscyphozoa.beechwoods.Beechwoods"
+		],
+		"fabric-datagen": [
+			"net.superfastscyphozoa.beechwoods.data.BeechwoodsDataGenerator"
+		]
+	},
+	"mixins": [
+		"beechwoods.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
