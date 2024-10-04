@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "beechwoods:red_beech_placed",
+    "features": [
+      {
+        "chance": 0.06,
+        "feature": {
+          "feature": "minecraft:huge_brown_mushroom",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.2,
+        "feature": "minecraft:fancy_oak_checked"
+      },
+      {
+        "chance": 0.5,
+        "feature": "beechwoods:yellow_beech_placed"
+      }
+    ]
+  }
+}

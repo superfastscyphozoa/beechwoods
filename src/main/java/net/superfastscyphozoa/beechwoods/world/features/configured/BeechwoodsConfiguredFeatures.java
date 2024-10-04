@@ -12,8 +12,8 @@ import net.superfastscyphozoa.beechwoods.Beechwoods;
 public class BeechwoodsConfiguredFeatures {
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
-        BeechwoodsVegetationConfiguredFeatures.bootstrap(context);
         BeechwoodsTreeConfiguredFeatures.bootstrap(context);
+        BeechwoodsVegetationConfiguredFeatures.bootstrap(context);
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

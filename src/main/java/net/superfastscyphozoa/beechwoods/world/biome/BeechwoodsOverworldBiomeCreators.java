@@ -10,7 +10,7 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.ConfiguredCarver;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
+import net.superfastscyphozoa.beechwoods.world.features.placed.BeechwoodsVegetationPlacedFeatures;
 import org.jetbrains.annotations.Nullable;
 
 public class BeechwoodsOverworldBiomeCreators {
@@ -72,12 +72,16 @@ public class BeechwoodsOverworldBiomeCreators {
         //generation and features
         GenerationSettings.LookupBackedBuilder generationSettings = new GenerationSettings.LookupBackedBuilder(featureLookup, carverLookup);
         addBasicFeatures(generationSettings);
-        generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.DARK_FOREST_VEGETATION);
-        DefaultBiomeFeatures.addForestFlowers(generationSettings);
+        generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, BeechwoodsVegetationPlacedFeatures.TREES_BEECH_FOREST);
+        //DefaultBiomeFeatures.addForestFlowers(generationSettings);
+
         DefaultBiomeFeatures.addDefaultOres(generationSettings);
         DefaultBiomeFeatures.addDefaultDisks(generationSettings);
-        DefaultBiomeFeatures.addDefaultFlowers(generationSettings);
+
+        DefaultBiomeFeatures.addDefaultGrass(generationSettings);
         DefaultBiomeFeatures.addForestGrass(generationSettings);
+        DefaultBiomeFeatures.addPlainsTallGrass(generationSettings);
+
         DefaultBiomeFeatures.addDefaultMushrooms(generationSettings);
         DefaultBiomeFeatures.addDefaultVegetation(generationSettings);
 
@@ -85,7 +89,7 @@ public class BeechwoodsOverworldBiomeCreators {
 
         return createBiome(
                 true, 0.7F, 0.8F,
-                4159204, 329011, -5673719, -3575296,
+                4159204, 329011, -2125507, -3982326,
                 spawnSettings, generationSettings, musicSound);
     }
 }

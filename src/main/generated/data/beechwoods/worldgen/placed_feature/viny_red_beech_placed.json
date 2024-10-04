@@ -1,5 +1,5 @@
 {
-  "feature": "beechwoods:yellow_beech",
+  "feature": "beechwoods:viny_red_beech",
   "placement": [
     {
       "type": "minecraft:block_predicate_filter",

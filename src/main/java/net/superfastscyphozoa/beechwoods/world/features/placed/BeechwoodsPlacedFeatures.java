@@ -14,8 +14,8 @@ import java.util.List;
 
 public class BeechwoodsPlacedFeatures {
     public static void bootstrap(Registerable<PlacedFeature> context) {
-        BeechwoodsVegetationPlacedFeatures.bootstrap(context);
         BeechwoodsTreePlacedFeatures.bootstrap(context);
+        BeechwoodsVegetationPlacedFeatures.bootstrap(context);
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {
@@ -25,5 +25,10 @@ public class BeechwoodsPlacedFeatures {
     protected static void register(Registerable<PlacedFeature> context, RegistryKey<PlacedFeature> key, RegistryEntry<ConfiguredFeature<?, ?>> configuration,
                                    List<PlacementModifier> modifiers) {
         context.register(key, new PlacedFeature(configuration, List.copyOf(modifiers)));
+    }
+
+    protected static void register(Registerable<PlacedFeature> context, RegistryKey<PlacedFeature> key, RegistryEntry<ConfiguredFeature<?, ?>> configuration,
+            PlacementModifier... modifiers) {
+        register(context, key, configuration, List.of(modifiers));
     }
 }
