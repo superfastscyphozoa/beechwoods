@@ -12,6 +12,7 @@ import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
+import net.superfastscyphozoa.beechwoods.registry.RegisterBlocks;
 import net.superfastscyphozoa.beechwoods.world.features.placed.BeechwoodsTreePlacedFeatures;
 
 import java.util.List;
@@ -71,7 +72,7 @@ public class BeechwoodsVegetationConfiguredFeatures {
         );
 
         DataPool.Builder<BlockState> pumpkinBuilder = DataPool.builder();
-        pumpkinBuilder.add(Blocks.PUMPKIN.getDefaultState(), 3).add(Blocks.ORANGE_TULIP.getDefaultState(), 2);
+        pumpkinBuilder.add(Blocks.PUMPKIN.getDefaultState(), 3).add(RegisterBlocks.PUMPKIN_FLOWER.getDefaultState(), 2);
 
         BeechwoodsConfiguredFeatures.register(
                 context,

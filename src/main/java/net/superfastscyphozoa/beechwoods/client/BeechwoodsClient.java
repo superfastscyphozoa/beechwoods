@@ -13,6 +13,7 @@ public class BeechwoodsClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.BEECH_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.PUMPKIN_FLOWER, RenderLayer.getCutout());
 
         BeechwoodsParticleFactories.registerParticleFactories();
     }

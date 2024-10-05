@@ -3,6 +3,7 @@ package net.superfastscyphozoa.beechwoods.registry;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -13,6 +14,7 @@ import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.beechwoods.Beechwoods;
 import net.superfastscyphozoa.beechwoods.block.BeechLeavesBlock;
 import net.superfastscyphozoa.beechwoods.block.BeechLogBlock;
+import net.superfastscyphozoa.beechwoods.block.PumpkinFlowerBlock;
 import net.superfastscyphozoa.beechwoods.world.tree.BeechwoodsSaplingGenerators;
 
 public class RegisterBlocks {
@@ -51,6 +53,21 @@ public class RegisterBlocks {
             new Block(AbstractBlock.Settings.create().mapColor(MapColor.RED).strength(0.5F).sounds(BlockSoundGroup.GRAVEL))
     );
 
+    public static final Block PUMPKIN_FLOWER = registerBlock(
+            "pumpkin_flower",
+            new PumpkinFlowerBlock(
+                    StatusEffects.REGENERATION,
+                    9.0F,
+                    AbstractBlock.Settings.create()
+                            .mapColor(MapColor.YELLOW)
+                            .noCollision()
+                            .breakInstantly()
+                            .sounds(BlockSoundGroup.GRASS)
+                            .offset(AbstractBlock.OffsetType.XZ)
+                            .pistonBehavior(PistonBehavior.DESTROY)
+            )
+    );
+
     //registry end
 
     private static Block registerBlock(String name, Block block) {
@@ -75,6 +92,8 @@ public class RegisterBlocks {
             entries.addAfter(ORANGE_BEECH_LEAVES, YELLOW_BEECH_LEAVES);
 
             entries.addAfter(Blocks.PODZOL, LITTERFALL);
+
+            entries.addAfter(Blocks.PUMPKIN, PUMPKIN_FLOWER);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {

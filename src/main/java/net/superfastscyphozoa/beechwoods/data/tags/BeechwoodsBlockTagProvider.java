@@ -40,5 +40,8 @@ public class BeechwoodsBlockTagProvider extends FabricTagProvider.BlockTagProvid
 
         getOrCreateTagBuilder(BlockTags.DIRT)
                 .add(RegisterBlocks.LITTERFALL);
+
+        getOrCreateTagBuilder(BlockTags.FLOWERS)
+                .add(RegisterBlocks.PUMPKIN_FLOWER);
     }
 }

@@ -14,6 +14,7 @@ public class BeechwoodsModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerTintableCross(RegisterBlocks.BEECH_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(RegisterBlocks.PUMPKIN_FLOWER, BlockStateModelGenerator.TintType.NOT_TINTED);
 
         blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.RED_BEECH_LEAVES);
         blockStateModelGenerator.registerSimpleCubeAll(RegisterBlocks.ORANGE_BEECH_LEAVES);
