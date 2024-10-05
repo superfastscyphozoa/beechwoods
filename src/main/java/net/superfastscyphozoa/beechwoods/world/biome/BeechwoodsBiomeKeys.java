@@ -10,6 +10,8 @@ public abstract class BeechwoodsBiomeKeys {
 
     public static final RegistryKey<Biome> BEECH_FOREST = registerBeechwoodsBiomeKeys("beech_forest");
 
+    public static final RegistryKey<Biome> BEECH_PLAINS = registerBeechwoodsBiomeKeys("beech_plains");
+
     private static RegistryKey<Biome> registerBeechwoodsBiomeKeys(String name) {
         return RegistryKey.of(RegistryKeys.BIOME, Identifier.of(Beechwoods.MOD_ID, name));
     }

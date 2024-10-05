@@ -61,6 +61,15 @@ public class BeechwoodsOverworldBiomeCreators {
         DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
     }
 
+    private static void addBeechPlainsFeatures(GenerationSettings.LookupBackedBuilder builder) {
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, BeechwoodsVegetationPlacedFeatures.BEECH_PLAINS_GRASS_PATCH);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, BeechwoodsVegetationPlacedFeatures.SUNFLOWER_PATCH);
+    }
+
+    private static void addBeechBiomeFeatures(GenerationSettings.LookupBackedBuilder builder) {
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, BeechwoodsVegetationPlacedFeatures.PUMPKIN_PATCH);
+    }
+
     //biomes
 
     public static Biome createBeechForest(RegistryEntryLookup<PlacedFeature> featureLookup, RegistryEntryLookup<ConfiguredCarver<?>> carverLookup) {
@@ -71,9 +80,11 @@ public class BeechwoodsOverworldBiomeCreators {
 
         //generation and features
         GenerationSettings.LookupBackedBuilder generationSettings = new GenerationSettings.LookupBackedBuilder(featureLookup, carverLookup);
+
         addBasicFeatures(generationSettings);
+        addBeechBiomeFeatures(generationSettings);
+
         generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, BeechwoodsVegetationPlacedFeatures.TREES_BEECH_FOREST);
-        //DefaultBiomeFeatures.addForestFlowers(generationSettings);
 
         DefaultBiomeFeatures.addDefaultOres(generationSettings);
         DefaultBiomeFeatures.addDefaultDisks(generationSettings);
@@ -85,11 +96,43 @@ public class BeechwoodsOverworldBiomeCreators {
         DefaultBiomeFeatures.addDefaultMushrooms(generationSettings);
         DefaultBiomeFeatures.addDefaultVegetation(generationSettings);
 
-        MusicSound musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_NETHER_NETHER_WASTES);
+        MusicSound musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_OVERWORLD_FOREST);
 
         return createBiome(
                 true, 0.7F, 0.8F,
                 4159204, 329011, -2125507, -3982326,
+                spawnSettings, generationSettings, musicSound);
+    }
+
+    public static Biome createBeechPlains(RegistryEntryLookup<PlacedFeature> featureLookup, RegistryEntryLookup<ConfiguredCarver<?>> carverLookup) {
+        //spawns
+        SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder();
+        DefaultBiomeFeatures.addFarmAnimals(spawnSettings);
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnSettings);
+
+        //generation and features
+        GenerationSettings.LookupBackedBuilder generationSettings = new GenerationSettings.LookupBackedBuilder(featureLookup, carverLookup);
+
+        addBasicFeatures(generationSettings);
+        addBeechPlainsFeatures(generationSettings);
+        addBeechBiomeFeatures(generationSettings);
+
+        generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, BeechwoodsVegetationPlacedFeatures.TREES_BEECH_PLAINS);
+
+        DefaultBiomeFeatures.addDefaultOres(generationSettings);
+        DefaultBiomeFeatures.addDefaultDisks(generationSettings);
+
+        DefaultBiomeFeatures.addDefaultGrass(generationSettings);
+        DefaultBiomeFeatures.addPlainsTallGrass(generationSettings);
+
+        DefaultBiomeFeatures.addDefaultMushrooms(generationSettings);
+        DefaultBiomeFeatures.addDefaultVegetation(generationSettings);
+
+        MusicSound musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_OVERWORLD_FOREST);
+
+        return createBiome(
+                true, 0.7F, 0.8F,
+                4159204, 329011, -6707397, -3982326,
                 spawnSettings, generationSettings, musicSound);
     }
 }

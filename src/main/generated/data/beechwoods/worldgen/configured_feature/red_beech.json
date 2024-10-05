@@ -14,7 +14,7 @@
       "hanging_leaves_chance": 0.16666667,
       "hanging_leaves_extension_chance": 0.33333334,
       "height": 5,
-      "offset": 0,
+      "offset": 1,
       "radius": 3,
       "wide_bottom_layer_hole_chance": 0.25
     },
@@ -55,18 +55,32 @@
     },
     "trunk_placer": {
       "type": "minecraft:fancy_trunk_placer",
-      "base_height": 5,
+      "base_height": 6,
       "height_rand_a": 12,
       "height_rand_b": 0
     },
     "trunk_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "beechwoods:beech_log",
-        "Properties": {
-          "axis": "y"
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "beechwoods:beech_log",
+            "Properties": {
+              "axis": "y"
+            }
+          },
+          "weight": 6
+        },
+        {
+          "data": {
+            "Name": "beechwoods:gazing_beech_log",
+            "Properties": {
+              "axis": "y"
+            }
+          },
+          "weight": 1
         }
-      }
+      ]
     }
   }
 }

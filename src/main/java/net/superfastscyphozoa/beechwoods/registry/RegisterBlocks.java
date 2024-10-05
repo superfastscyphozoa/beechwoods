@@ -21,6 +21,9 @@ public class RegisterBlocks {
     public static final Block BEECH_LOG = registerBlock("beech_log",
             new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)));
 
+    public static final Block GAZING_BEECH_LOG = registerBlock("gazing_beech_log",
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)));
+
     public static final Block BEECH_WOOD = registerBlock("beech_wood",
             new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD)));
 
@@ -60,6 +63,7 @@ public class RegisterBlocks {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
             entries.addAfter(Blocks.CHERRY_LOG, BEECH_LOG);
+            entries.addAfter(BEECH_LOG, GAZING_BEECH_LOG);
             entries.addAfter(Blocks.CHERRY_SAPLING, BEECH_SAPLING);
             entries.addAfter(Blocks.CHERRY_LEAVES, RED_BEECH_LEAVES);
             entries.addAfter(RED_BEECH_LEAVES, ORANGE_BEECH_LEAVES);
