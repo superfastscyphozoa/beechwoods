@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "beechwoods:block/litterfall"
+      },
+      {
+        "model": "beechwoods:block/litterfall",
+        "y": 90
+      },
+      {
+        "model": "beechwoods:block/litterfall",
+        "y": 180
+      },
+      {
+        "model": "beechwoods:block/litterfall",
+        "y": 270
+      }
+    ]
+  }
+}

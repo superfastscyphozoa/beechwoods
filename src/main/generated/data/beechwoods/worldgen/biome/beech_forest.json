@@ -9,8 +9,8 @@
   "downfall": 0.8,
   "effects": {
     "fog_color": 12638463,
-    "foliage_color": -3982326,
-    "grass_color": -2125507,
+    "foliage_color": -8743902,
+    "grass_color": -8152271,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -82,6 +82,7 @@
       "minecraft:glow_lichen",
       "beechwoods:pumpkin_patch",
       "beechwoods:trees_beech_forest",
+      "beechwoods:fern_patch",
       "minecraft:patch_grass_badlands",
       "minecraft:patch_grass_forest",
       "minecraft:patch_tall_grass_2",
@@ -129,6 +130,18 @@
         "type": "minecraft:cow",
         "maxCount": 4,
         "minCount": 4,
+        "weight": 8
+      },
+      {
+        "type": "minecraft:rabbit",
+        "maxCount": 3,
+        "minCount": 2,
+        "weight": 4
+      },
+      {
+        "type": "minecraft:fox",
+        "maxCount": 4,
+        "minCount": 2,
         "weight": 8
       }
     ],

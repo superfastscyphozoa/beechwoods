@@ -1,5 +1,5 @@
 {
-  "feature": "beechwoods:trees_beech_forest",
+  "feature": "beechwoods:trees_beech_plains",
   "placement": [
     {
       "type": "minecraft:count",
@@ -8,7 +8,7 @@
         "distribution": [
           {
             "data": 0,
-            "weight": 9
+            "weight": 4
           },
           {
             "data": 1,

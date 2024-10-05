@@ -17,14 +17,19 @@ public class BeechwoodsBlockTagProvider extends FabricTagProvider.BlockTagProvid
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 
-        getOrCreateTagBuilder(BlockTags.OVERWORLD_NATURAL_LOGS)
+        getOrCreateTagBuilder(BeechwoodsTags.Blocks.LOGS_THAT_MAKE_BEECH_WOOD)
                 .add(
-                        RegisterBlocks.BEECH_LOG
+                        RegisterBlocks.BEECH_LOG,
+                        RegisterBlocks.GAZING_BEECH_LOG
                 );
+
+        getOrCreateTagBuilder(BlockTags.OVERWORLD_NATURAL_LOGS)
+                .addTag(BeechwoodsTags.Blocks.LOGS_THAT_MAKE_BEECH_WOOD);
 
         getOrCreateTagBuilder(BeechwoodsTags.Blocks.BEECH_LOGS)
                 .add(
                         RegisterBlocks.BEECH_LOG,
+                        RegisterBlocks.GAZING_BEECH_LOG,
                         RegisterBlocks.BEECH_WOOD,
                         RegisterBlocks.STRIPPED_BEECH_LOG,
                         RegisterBlocks.STRIPPED_BEECH_WOOD
@@ -32,5 +37,8 @@ public class BeechwoodsBlockTagProvider extends FabricTagProvider.BlockTagProvid
 
         getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
                 .addTag(BeechwoodsTags.Blocks.BEECH_LOGS);
+
+        getOrCreateTagBuilder(BlockTags.DIRT)
+                .add(RegisterBlocks.LITTERFALL);
     }
 }

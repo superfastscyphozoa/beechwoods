@@ -1,5 +1,7 @@
 package net.superfastscyphozoa.beechwoods.world.biome;
 
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.sound.MusicSound;
@@ -13,7 +15,7 @@ import net.minecraft.world.gen.feature.PlacedFeature;
 import net.superfastscyphozoa.beechwoods.world.features.placed.BeechwoodsVegetationPlacedFeatures;
 import org.jetbrains.annotations.Nullable;
 
-public class BeechwoodsOverworldBiomeCreators {
+public class BeechwoodsBiomeCreator {
     private static Biome createBiome(
             boolean precipitation, float temperature, float downfall,
             SpawnSettings.Builder spawnSettings,
@@ -73,10 +75,6 @@ public class BeechwoodsOverworldBiomeCreators {
     //biomes
 
     public static Biome createBeechForest(RegistryEntryLookup<PlacedFeature> featureLookup, RegistryEntryLookup<ConfiguredCarver<?>> carverLookup) {
-        //spawns
-        SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addFarmAnimals(spawnSettings);
-        DefaultBiomeFeatures.addBatsAndMonsters(spawnSettings);
 
         //generation and features
         GenerationSettings.LookupBackedBuilder generationSettings = new GenerationSettings.LookupBackedBuilder(featureLookup, carverLookup);
@@ -89,6 +87,8 @@ public class BeechwoodsOverworldBiomeCreators {
         DefaultBiomeFeatures.addDefaultOres(generationSettings);
         DefaultBiomeFeatures.addDefaultDisks(generationSettings);
 
+        generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, BeechwoodsVegetationPlacedFeatures.FERN_PATCH);
+
         DefaultBiomeFeatures.addDefaultGrass(generationSettings);
         DefaultBiomeFeatures.addForestGrass(generationSettings);
         DefaultBiomeFeatures.addPlainsTallGrass(generationSettings);
@@ -96,26 +96,35 @@ public class BeechwoodsOverworldBiomeCreators {
         DefaultBiomeFeatures.addDefaultMushrooms(generationSettings);
         DefaultBiomeFeatures.addDefaultVegetation(generationSettings);
 
-        MusicSound musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_OVERWORLD_FOREST);
-
-        return createBiome(
-                true, 0.7F, 0.8F,
-                4159204, 329011, -2125507, -3982326,
-                spawnSettings, generationSettings, musicSound);
-    }
-
-    public static Biome createBeechPlains(RegistryEntryLookup<PlacedFeature> featureLookup, RegistryEntryLookup<ConfiguredCarver<?>> carverLookup) {
         //spawns
         SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder();
         DefaultBiomeFeatures.addFarmAnimals(spawnSettings);
         DefaultBiomeFeatures.addBatsAndMonsters(spawnSettings);
 
+        spawnSettings
+                .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 4, 2, 3))
+                .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.FOX, 8, 2, 4));
+
+        //music
+        MusicSound musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_OVERWORLD_FOREST);
+
+        //-2125507
+        //-3982326
+
+        return createBiome(
+                true, 0.7F, 0.8F,
+                4159204, 329011, -8152271, -8743902,
+                spawnSettings, generationSettings, musicSound);
+    }
+
+    public static Biome createBeechPlains(RegistryEntryLookup<PlacedFeature> featureLookup, RegistryEntryLookup<ConfiguredCarver<?>> carverLookup) {
+
         //generation and features
         GenerationSettings.LookupBackedBuilder generationSettings = new GenerationSettings.LookupBackedBuilder(featureLookup, carverLookup);
 
         addBasicFeatures(generationSettings);
-        addBeechPlainsFeatures(generationSettings);
         addBeechBiomeFeatures(generationSettings);
+        addBeechPlainsFeatures(generationSettings);
 
         generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, BeechwoodsVegetationPlacedFeatures.TREES_BEECH_PLAINS);
 
@@ -128,11 +137,21 @@ public class BeechwoodsOverworldBiomeCreators {
         DefaultBiomeFeatures.addDefaultMushrooms(generationSettings);
         DefaultBiomeFeatures.addDefaultVegetation(generationSettings);
 
+        //spawns
+        SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder();
+        DefaultBiomeFeatures.addFarmAnimals(spawnSettings);
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnSettings);
+
+        spawnSettings
+                .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 4, 2, 3))
+                .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.FOX, 8, 2, 4));
+
+        //music
         MusicSound musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_OVERWORLD_FOREST);
 
         return createBiome(
                 true, 0.7F, 0.8F,
-                4159204, 329011, -6707397, -3982326,
+                4159204, 329011, -6707397, -8743902,
                 spawnSettings, generationSettings, musicSound);
     }
 }

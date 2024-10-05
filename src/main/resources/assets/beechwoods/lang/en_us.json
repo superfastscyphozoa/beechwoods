@@ -9,5 +9,7 @@
 
   "block.beechwoods.red_beech_leaves": "Red Beech Leaves",
   "block.beechwoods.orange_beech_leaves": "Orange Beech Leaves",
-  "block.beechwoods.yellow_beech_leaves": "Yellow Beech Leaves"
+  "block.beechwoods.yellow_beech_leaves": "Yellow Beech Leaves",
+
+  "block.beechwoods.litterfall": "Litterfall"
 }

@@ -19,6 +19,7 @@ public class BeechwoodsItemTagProvider extends FabricTagProvider.ItemTagProvider
         getOrCreateTagBuilder(BeechwoodsTags.Items.BEECH_LOGS)
                 .add(
                         RegisterBlocks.BEECH_LOG.asItem(),
+                        RegisterBlocks.GAZING_BEECH_LOG.asItem(),
                         RegisterBlocks.BEECH_WOOD.asItem(),
                         RegisterBlocks.STRIPPED_BEECH_LOG.asItem(),
                         RegisterBlocks.STRIPPED_BEECH_WOOD.asItem()

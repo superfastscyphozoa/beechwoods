@@ -10,13 +10,16 @@
             "entries": [
               {
                 "data": {
-                  "Name": "minecraft:pumpkin"
+                  "Name": "minecraft:fern"
                 },
                 "weight": 3
               },
               {
                 "data": {
-                  "Name": "minecraft:orange_tulip"
+                  "Name": "minecraft:large_fern",
+                  "Properties": {
+                    "half": "lower"
+                  }
                 },
                 "weight": 2
               }
@@ -28,31 +31,14 @@
         {
           "type": "minecraft:block_predicate_filter",
           "predicate": {
-            "type": "minecraft:all_of",
-            "predicates": [
-              {
-                "type": "minecraft:replaceable"
-              },
-              {
-                "type": "minecraft:matching_fluids",
-                "fluids": "minecraft:empty"
-              },
-              {
-                "type": "minecraft:matching_blocks",
-                "blocks": "minecraft:grass_block",
-                "offset": [
-                  0,
-                  -1,
-                  0
-                ]
-              }
-            ]
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
           }
         }
       ]
     },
-    "tries": 96,
+    "tries": 64,
     "xz_spread": 7,
-    "y_spread": 2
+    "y_spread": 3
   }
 }

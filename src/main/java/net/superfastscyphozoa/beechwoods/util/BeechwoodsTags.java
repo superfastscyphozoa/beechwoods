@@ -12,6 +12,8 @@ public class BeechwoodsTags {
 
         public static final TagKey<Block> BEECH_LOGS = createTag("beech_logs");
 
+        public static final TagKey<Block> LOGS_THAT_MAKE_BEECH_WOOD = createTag("logs_that_make_beech_wood");
+
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(Beechwoods.MOD_ID, name));
         }

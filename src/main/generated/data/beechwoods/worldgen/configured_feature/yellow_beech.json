@@ -1,7 +1,17 @@
 {
   "type": "minecraft:tree",
   "config": {
-    "decorators": [],
+    "decorators": [
+      {
+        "type": "minecraft:alter_ground",
+        "provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "beechwoods:litterfall"
+          }
+        }
+      }
+    ],
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -46,7 +56,7 @@
       ]
     },
     "force_dirt": false,
-    "ignore_vines": true,
+    "ignore_vines": false,
     "minimum_size": {
       "type": "minecraft:two_layers_feature_size",
       "limit": 1,
@@ -66,7 +76,8 @@
           "data": {
             "Name": "beechwoods:beech_log",
             "Properties": {
-              "axis": "y"
+              "axis": "x",
+              "grounded": "false"
             }
           },
           "weight": 6

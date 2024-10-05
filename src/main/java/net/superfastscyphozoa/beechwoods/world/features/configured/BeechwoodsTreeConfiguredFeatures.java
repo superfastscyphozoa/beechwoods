@@ -1,5 +1,6 @@
 package net.superfastscyphozoa.beechwoods.world.features.configured;
 
+import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockState;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -10,7 +11,9 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.CherryFoliagePlacer;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
+import net.minecraft.world.gen.treedecorator.AlterGroundTreeDecorator;
 import net.minecraft.world.gen.trunk.LargeOakTrunkPlacer;
 import net.superfastscyphozoa.beechwoods.registry.RegisterBlocks;
 
@@ -34,7 +37,7 @@ public class BeechwoodsTreeConfiguredFeatures {
                 new CherryFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(1), ConstantIntProvider.create(5), 0.25F, 0.5F, 0.16666667F, 0.33333334F),
 
                 new TwoLayersFeatureSize(1, 0, 2))
-        ).ignoreVines();
+        ).decorators(ImmutableList.of(new AlterGroundTreeDecorator(BlockStateProvider.of(RegisterBlocks.LITTERFALL))));
     }
 
     //blockstate providers

@@ -1,14 +1,26 @@
 {
   "variants": {
-    "axis=x": {
+    "axis=x,grounded=false": {
       "model": "beechwoods:block/beech_log_horizontal",
       "x": 90,
       "y": 90
     },
-    "axis=y": {
+    "axis=y,grounded=false": {
       "model": "beechwoods:block/beech_log"
     },
-    "axis=z": {
+    "axis=z,grounded=false": {
+      "model": "beechwoods:block/beech_log_horizontal",
+      "x": 90
+    },
+    "axis=x,grounded=true": {
+      "model": "beechwoods:block/beech_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,grounded=true": {
+      "model": "beechwoods:block/grounded_beech_log"
+    },
+    "axis=z,grounded=true": {
       "model": "beechwoods:block/beech_log_horizontal",
       "x": 90
     }

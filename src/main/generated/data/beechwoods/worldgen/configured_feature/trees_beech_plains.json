@@ -11,14 +11,6 @@
         }
       },
       {
-        "chance": 0.2,
-        "feature": "minecraft:fancy_oak_bees_002"
-      },
-      {
-        "chance": 0.1,
-        "feature": "minecraft:oak_bees_0002"
-      },
-      {
         "chance": 0.5,
         "feature": "beechwoods:yellow_beech_placed"
       }

@@ -24,13 +24,16 @@ public class BeechwoodsVegetationPlacedFeatures {
     public static final RegistryKey<PlacedFeature> SUNFLOWER_PATCH = registerKey("sunflower_patch");
     public static final RegistryKey<PlacedFeature> BEECH_PLAINS_GRASS_PATCH = registerKey("beech_plains_grass_patch");
     public static final RegistryKey<PlacedFeature> PUMPKIN_PATCH = registerKey("pumpkin_patch");
+    public static final RegistryKey<PlacedFeature> FERN_PATCH = registerKey("fern_patch");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
         RegistryEntry<ConfiguredFeature<?, ?>> beechForestTrees = configuredFeatureRegistryEntryLookup.getOrThrow(BeechwoodsVegetationConfiguredFeatures.TREES_BEECH_FOREST);
+        RegistryEntry<ConfiguredFeature<?, ?>> beechPlainsTrees = configuredFeatureRegistryEntryLookup.getOrThrow(BeechwoodsVegetationConfiguredFeatures.TREES_BEECH_PLAINS);
         RegistryEntry<ConfiguredFeature<?, ?>> sunflowerPatch = configuredFeatureRegistryEntryLookup.getOrThrow(BeechwoodsVegetationConfiguredFeatures.SUNFLOWER_PATCH);
         RegistryEntry<ConfiguredFeature<?, ?>> grass_patch = configuredFeatureRegistryEntryLookup.getOrThrow(VegetationConfiguredFeatures.PATCH_GRASS);
         RegistryEntry<ConfiguredFeature<?, ?>> pumpkin_patch = configuredFeatureRegistryEntryLookup.getOrThrow(BeechwoodsVegetationConfiguredFeatures.PUMPKIN_PATCH);
+        RegistryEntry<ConfiguredFeature<?, ?>> fern_patch = configuredFeatureRegistryEntryLookup.getOrThrow(BeechwoodsVegetationConfiguredFeatures.FERN_PATCH);
 
         //tree
 
@@ -40,8 +43,8 @@ public class BeechwoodsVegetationPlacedFeatures {
         BeechwoodsPlacedFeatures.register(
                 context,
                 TREES_BEECH_PLAINS,
-                beechForestTrees,
-                PlacedFeatures.createCountExtraModifier(0, 0.1F, 1),
+                beechPlainsTrees,
+                PlacedFeatures.createCountExtraModifier(0, 0.2F, 1),
                 SquarePlacementModifier.of(),
                 plainsPlacementModifier,
                 PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP,
@@ -78,6 +81,16 @@ public class BeechwoodsVegetationPlacedFeatures {
                 BEECH_PLAINS_GRASS_PATCH,
                 grass_patch,
                 NoiseThresholdCountPlacementModifier.of(-0.8, 5, 10),
+                SquarePlacementModifier.of(),
+                PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
+                BiomePlacementModifier.of()
+        );
+
+        BeechwoodsPlacedFeatures.register(
+                context,
+                FERN_PATCH,
+                fern_patch,
+                RarityFilterPlacementModifier.of(9),
                 SquarePlacementModifier.of(),
                 PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
                 BiomePlacementModifier.of()

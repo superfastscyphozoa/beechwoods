@@ -12,6 +12,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.beechwoods.Beechwoods;
 import net.superfastscyphozoa.beechwoods.block.BeechLeavesBlock;
+import net.superfastscyphozoa.beechwoods.block.BeechLogBlock;
 import net.superfastscyphozoa.beechwoods.world.tree.BeechwoodsSaplingGenerators;
 
 public class RegisterBlocks {
@@ -19,19 +20,19 @@ public class RegisterBlocks {
     //registry
 
     public static final Block BEECH_LOG = registerBlock("beech_log",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)));
+            new BeechLogBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LOG)));
 
     public static final Block GAZING_BEECH_LOG = registerBlock("gazing_beech_log",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_LOG)));
 
     public static final Block BEECH_WOOD = registerBlock("beech_wood",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_WOOD)));
 
     public static final Block STRIPPED_BEECH_LOG = registerBlock("stripped_beech_log",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_LOG)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_SPRUCE_LOG)));
 
     public static final Block STRIPPED_BEECH_WOOD = registerBlock("stripped_beech_wood",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_SPRUCE_WOOD)));
 
     public static final Block RED_BEECH_LEAVES = registerBlock("red_beech_leaves", createBeechLeaves(MapColor.RED));
     public static final Block ORANGE_BEECH_LEAVES = registerBlock("orange_beech_leaves", createBeechLeaves(MapColor.ORANGE));
@@ -45,6 +46,10 @@ public class RegisterBlocks {
                     .breakInstantly()
                     .sounds(BlockSoundGroup.GRASS)
                     .pistonBehavior(PistonBehavior.DESTROY)));
+
+    public static final Block LITTERFALL = registerBlock("litterfall",
+            new Block(AbstractBlock.Settings.create().mapColor(MapColor.RED).strength(0.5F).sounds(BlockSoundGroup.GRAVEL))
+    );
 
     //registry end
 
@@ -68,11 +73,14 @@ public class RegisterBlocks {
             entries.addAfter(Blocks.CHERRY_LEAVES, RED_BEECH_LEAVES);
             entries.addAfter(RED_BEECH_LEAVES, ORANGE_BEECH_LEAVES);
             entries.addAfter(ORANGE_BEECH_LEAVES, YELLOW_BEECH_LEAVES);
+
+            entries.addAfter(Blocks.PODZOL, LITTERFALL);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
             entries.addAfter(Blocks.CHERRY_BUTTON, BEECH_LOG);
-            entries.addAfter(BEECH_LOG, BEECH_WOOD);
+            entries.addAfter(BEECH_LOG, GAZING_BEECH_LOG);
+            entries.addAfter(GAZING_BEECH_LOG, BEECH_WOOD);
             entries.addAfter(BEECH_WOOD, STRIPPED_BEECH_LOG);
             entries.addAfter(STRIPPED_BEECH_LOG, STRIPPED_BEECH_WOOD);
         });

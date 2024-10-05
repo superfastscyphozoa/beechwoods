@@ -12,7 +12,7 @@ public class BeechwoodsBiomes {
         RegistryEntryLookup<PlacedFeature> placedFeatureLookup = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
         RegistryEntryLookup<ConfiguredCarver<?>> configuredCarverLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER);
 
-        context.register(BeechwoodsBiomeKeys.BEECH_FOREST, BeechwoodsOverworldBiomeCreators.createBeechForest(placedFeatureLookup, configuredCarverLookup));
-        context.register(BeechwoodsBiomeKeys.BEECH_PLAINS, BeechwoodsOverworldBiomeCreators.createBeechPlains(placedFeatureLookup, configuredCarverLookup));
+        context.register(BeechwoodsBiomeKeys.BEECH_FOREST, BeechwoodsBiomeCreator.createBeechForest(placedFeatureLookup, configuredCarverLookup));
+        context.register(BeechwoodsBiomeKeys.BEECH_PLAINS, BeechwoodsBiomeCreator.createBeechPlains(placedFeatureLookup, configuredCarverLookup));
     }
 }

@@ -21,8 +21,14 @@ import static net.superfastscyphozoa.beechwoods.world.features.configured.Beechw
 public class BeechwoodsVegetationConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?,?>> TREES_BEECH_FOREST = registerKey("trees_beech_forest");
+    public static final RegistryKey<ConfiguredFeature<?,?>> TREES_BEECH_PLAINS = registerKey("trees_beech_plains");
     public static final RegistryKey<ConfiguredFeature<?,?>> SUNFLOWER_PATCH = registerKey("sunflower_patch");
     public static final RegistryKey<ConfiguredFeature<?,?>> PUMPKIN_PATCH = registerKey("pumpkin_patch");
+    public static final RegistryKey<ConfiguredFeature<?,?>> FERN_PATCH = registerKey("fern_patch");
+
+    private static RandomPatchFeatureConfig createRandomPatchFeatureConfig(BlockStateProvider block, int tries) {
+        return ConfiguredFeatures.createRandomPatchFeatureConfig(tries, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(block)));
+    }
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -31,21 +37,31 @@ public class BeechwoodsVegetationConfiguredFeatures {
         var placedFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
         RegistryEntry<PlacedFeature> red_beech = placedFeatureRegistryEntryLookup.getOrThrow(BeechwoodsTreePlacedFeatures.RED_BEECH_PLACED_KEY);
         RegistryEntry<PlacedFeature> yellow_beech = placedFeatureRegistryEntryLookup.getOrThrow(BeechwoodsTreePlacedFeatures.YELLOW_BEECH_PLACED_KEY);
-        RegistryEntry<PlacedFeature> oak = placedFeatureRegistryEntryLookup.getOrThrow(TreePlacedFeatures.FANCY_OAK_CHECKED);
+        RegistryEntry<PlacedFeature> fancyOak = placedFeatureRegistryEntryLookup.getOrThrow(TreePlacedFeatures.FANCY_OAK_BEES_002);
+        RegistryEntry<PlacedFeature> oak = placedFeatureRegistryEntryLookup.getOrThrow(TreePlacedFeatures.OAK_BEES_0002);
 
         //tree
 
         BeechwoodsConfiguredFeatures.register(context, TREES_BEECH_FOREST, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfig(List.of(
-                        new RandomFeatureEntry(PlacedFeatures.createEntry(brown_mushy), 0.06F),
+                        new RandomFeatureEntry(PlacedFeatures.createEntry(brown_mushy), 0.075F),
 
-                        new RandomFeatureEntry(oak, 0.2F),
+                        new RandomFeatureEntry(fancyOak, 0.2F),
+                        new RandomFeatureEntry(oak, 0.1F),
 
                         new RandomFeatureEntry(yellow_beech, 0.5F)
                 ), red_beech)
         );
 
-        //plant
+        BeechwoodsConfiguredFeatures.register(context, TREES_BEECH_PLAINS, Feature.RANDOM_SELECTOR,
+                new RandomFeatureConfig(List.of(
+                        new RandomFeatureEntry(PlacedFeatures.createEntry(brown_mushy), 0.075F),
+
+                        new RandomFeatureEntry(yellow_beech, 0.5F)
+                ), red_beech)
+        );
+
+        //flowers and other plants
 
         BeechwoodsConfiguredFeatures.register(
                 context,
@@ -55,19 +71,33 @@ public class BeechwoodsVegetationConfiguredFeatures {
         );
 
         DataPool.Builder<BlockState> pumpkinBuilder = DataPool.builder();
-        pumpkinBuilder.add(Blocks.PUMPKIN.getDefaultState(), 2).add(Blocks.ORANGE_TULIP.getDefaultState(), 1);
+        pumpkinBuilder.add(Blocks.PUMPKIN.getDefaultState(), 3).add(Blocks.ORANGE_TULIP.getDefaultState(), 2);
 
         BeechwoodsConfiguredFeatures.register(
                 context,
                 PUMPKIN_PATCH,
                 Feature.RANDOM_PATCH,
                 new RandomPatchFeatureConfig(
-                        64, 6, 2,
+                        96, 7, 2,
                         PlacedFeatures.createEntry(
                                 Feature.SIMPLE_BLOCK,
                                 new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(pumpkinBuilder)),
                                 BlockPredicate.allOf(BlockPredicate.replaceable(), BlockPredicate.noFluid(), BlockPredicate.matchingBlocks(Direction.DOWN.getVector(), Blocks.GRASS_BLOCK))
                         )
+                )
+        );
+
+        //grass and ferns
+
+        BeechwoodsConfiguredFeatures.register(
+                context,
+                FERN_PATCH,
+                Feature.RANDOM_PATCH,
+                createRandomPatchFeatureConfig(
+                        new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                                .add(Blocks.FERN.getDefaultState(), 3)
+                                .add(Blocks.LARGE_FERN.getDefaultState(), 2)),
+                        64
                 )
         );
     }
