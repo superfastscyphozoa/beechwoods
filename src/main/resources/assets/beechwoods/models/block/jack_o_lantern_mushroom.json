@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "beechwoods:block/jack_o_lantern_mushroom"
+  }
+}

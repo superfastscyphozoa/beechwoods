@@ -14,6 +14,7 @@ import net.minecraft.util.Identifier;
 import net.superfastscyphozoa.beechwoods.Beechwoods;
 import net.superfastscyphozoa.beechwoods.block.BeechLeavesBlock;
 import net.superfastscyphozoa.beechwoods.block.BeechLogBlock;
+import net.superfastscyphozoa.beechwoods.block.GlowingMushroomBlock;
 import net.superfastscyphozoa.beechwoods.block.PumpkinFlowerBlock;
 import net.superfastscyphozoa.beechwoods.world.tree.BeechwoodsSaplingGenerators;
 
@@ -68,6 +69,19 @@ public class RegisterBlocks {
             )
     );
 
+    public static final Block JACK_O_LANTERN_MUSHROOM = registerBlock(
+            "jack_o_lantern_mushroom",
+            new GlowingMushroomBlock(
+                    AbstractBlock.Settings.create()
+                            .mapColor(MapColor.ORANGE)
+                            .noCollision()
+                            .breakInstantly()
+                            .sounds(BlockSoundGroup.FUNGUS)
+                            .luminance(state -> 4)
+                            .pistonBehavior(PistonBehavior.DESTROY)
+            )
+    );
+
     //registry end
 
     private static Block registerBlock(String name, Block block) {
@@ -94,6 +108,8 @@ public class RegisterBlocks {
             entries.addAfter(Blocks.PODZOL, LITTERFALL);
 
             entries.addAfter(Blocks.PUMPKIN, PUMPKIN_FLOWER);
+
+            entries.addAfter(Blocks.RED_MUSHROOM, JACK_O_LANTERN_MUSHROOM);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {

@@ -18,7 +18,7 @@ public class BeechLogBlock extends PillarBlock {
     public static final BooleanProperty GROUNDED = BeechwoodsProperties.GROUNDED;
 
     @Override
-    public MapCodec<? extends BeechLogBlock> getCodec() {
+    public MapCodec<BeechLogBlock> getCodec() {
         return CODEC;
     }
 

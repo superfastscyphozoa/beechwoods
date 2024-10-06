@@ -5,4 +5,6 @@ import net.minecraft.state.property.BooleanProperty;
 public class BeechwoodsProperties {
 
     public static final BooleanProperty GROUNDED = BooleanProperty.of("grounded");
+
+    public static final BooleanProperty GLOWING = BooleanProperty.of("glowing");
 }

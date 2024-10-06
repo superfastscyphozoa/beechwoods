@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "glowing=false": {
+      "model": "beechwoods:block/jack_o_lantern_mushroom"
+    },
+    "glowing=true": {
+      "model": "beechwoods:block/jack_o_lantern_mushroom_glowing"
+    }
+  }
+}

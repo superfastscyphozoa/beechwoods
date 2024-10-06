@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "beechwoods:block/jack_o_lantern_mushroom"
+  }
+}

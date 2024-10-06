@@ -1,7 +1,8 @@
-// 1.21.1	2024-10-06T04:11:01.314376	beechwoods/Tags for minecraft:block
+// 1.21.1	2024-10-06T16:33:29.2284176	beechwoods/Tags for minecraft:block
 54bb61b0472f6369b140c438a34ebc613a3afbc0 data\minecraft\tags\block\dirt.json
 4801603bd58125b82b592e992d029dc5b0b292a3 data\minecraft\tags\block\logs_that_burn.json
 e804f986d8b158873f7ff715298ea9be5cea2e6d data\beechwoods\tags\block\logs_that_make_beech_wood.json
+54bb61b0472f6369b140c438a34ebc613a3afbc0 data\minecraft\tags\block\mushroom_grow_block.json
 3581fd50b0a3576fdd29dd9ad2c4d37b999578ca data\minecraft\tags\block\overworld_natural_logs.json
 88f6dcae61a5b8d93264ac98bedf8ea47fd81bc7 data\beechwoods\tags\block\beech_logs.json
 4105a3fc37454f6676e44ba252d0f311b0ed2c90 data\minecraft\tags\block\flowers.json
